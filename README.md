@@ -1,37 +1,47 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
 
-You can use the [editor on GitHub](https://github.com/tallenrand/HTML5/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+<!--
+     HTML code used with Epic Games HTML5 projects
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+     much of this is for UE4 development purposes.
 
-### Markdown
+     to create a custom HTML file for your project:
+     - make a copy of this file - or make one from scratch
+     - and put it in: "your project folder"/Build/HTML/GameX.html.template
+-->
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<html lang="en">
+<head>
+	<title>Cards_Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-```markdown
-Syntax highlighted code block
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 
-# Header 1
-## Header 2
-### Header 3
+	<link href="Cards_Test.css" rel="stylesheet">
+</head>
+<body>
 
-- Bulleted
-- List
+<div class="wrapper" id="mainarea">
+	<div class="alert alert-warning centered-axis-xy" style="min-height: 20px; display:none;" role="alert" id="compilingmessage">
+		<div id='loadTasks'> </div>
+	</div>
+	<canvas id="canvas" class="emscripten" oncontextmenu="event.preventDefault()" style="display:none;">
+</div>
+<div class="row buttonarea text-center" id="buttonrow">
+	<div class="col-sm-2 text-center"></div>
+	<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="Module['pauseMainLoop']();">Pause</button></div>
+	<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="Module['resumeMainLoop']();">Resume</button></div>
+	<div class="col-sm-2 text-center"></div>
+	<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" id='clear_indexeddb' onclick="deleteIndexedDBStorage();">Clear IndexedDB</button></div>
+	<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" id="fullscreen_request">FullScreen</button></div>
+	<div class="col-sm-2 text-center"></div>
+	<div class="col-sm-2 text-center"></div>
+</div>
+<div class="texthalf text-normal jumbotron " id="logwindow" style='display:none'></div>
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/tallenrand/HTML5/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<script src="Cards_Test.UE4.js"></script>
+</body>
+</html>
